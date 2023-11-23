@@ -1,15 +1,25 @@
-import { Post } from './modules/Post';
-import './components/style.css';
+import { Post } from './components/Post';
 import { Header } from './components/Header';
+import './components/style.css';
+import styles from './App.module.css';
+import { Sidebar } from './components/Sidebar';
+
 
 export function App() {
 
   return (
     <>
     <Header />
-      <h1>Wello Word</h1>
-      <Post author='Author' content="loren ipsun" />
-      <Post author='google' content="some text here :]" />
+
+    <div className={styles.wrapper}>
+      <Sidebar />
+
+      <main>
+        <Post />
+        
+      </main>
+    </div>
+
     </>
   )
 }
