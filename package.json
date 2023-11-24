@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@phosphor-icons/react": "^2.0.15",
     "phosphor-react": "^1.4.1"
   }
 }
