@@ -1,17 +1,18 @@
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+
 import styles from './Post.module.css';
 
 
-export function Post() {
+export function Post({ key, author, content, publishedAt}) {
   return (
    <article className={styles.post}>
     <header>
       <div className={styles.author}>
-        <Avatar src="https://github.com/Frankdias92.png" />
+        <Avatar src={author.avatarUrl} alt={author.name}/>
         <div className={styles.authorInfo} >
-          <strong>UserName</strong>
-          <span>Developer</span>
+          <strong>{author.name}</strong>
+          <span>{author.role}</span>
         </div>
       </div>
 
@@ -20,9 +21,7 @@ export function Post() {
 
 
     <div className={styles.content}>
-      <p>preira linha de texto</p>
-      <p><a href="#">algum link </a></p>
-      <p>💪<a href="#">terceira linha de texto</a></p>
+        {author.content}
     </div>
 
 
