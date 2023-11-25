@@ -18,13 +18,17 @@ interface Content {
   content: any;
 };
 
-interface PostProps {
+export interface PostType {
+  id: number;
   author: Author;
   publishedAt: Date;
   content: Content[];
+}
+interface PostProps {
+  post: PostType;
 };
 
-export function Post({ author, publishedAt, content }: PostProps ) {
+export function Post({ post }: PostProps ) {
   const [comments, setComments] = useState([
     'You are Rock! 🤘'
   ]);
@@ -32,11 +36,11 @@ export function Post({ author, publishedAt, content }: PostProps ) {
   const [newCommentText, setNewCommentText] = useState('');
 
 
-  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm", {
+  const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm", {
     locale: ptBR
   });
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {locale: ptBR, addSuffix: true});
 
   function handleNewComment(event: FormEvent) {
     event.preventDefault();
@@ -70,10 +74,10 @@ export function Post({ author, publishedAt, content }: PostProps ) {
    <article className={styles.post}>
     <header>
       <div className={styles.author}>
-        <Avatar src={author.avatarUrl} alt='' />
+        <Avatar src={post.author.avatarUrl} alt='' />
         <div className={styles.authorInfo} >
-          <strong>{author.name}</strong>
-          <span>{author.role}</span>
+          <strong>{post.author.name}</strong>
+          <span>{post.author.role}</span>
         </div>
       </div>
 
@@ -84,7 +88,7 @@ export function Post({ author, publishedAt, content }: PostProps ) {
 
 
     <div className={styles.content}>
-        {content.map(line => {
+        {post.content.map(line => {
           if (line.type === 'text') {
             return <p key={line.content}>{line.content}</p>
           } else if (line.type === 'link') {
