@@ -19,7 +19,7 @@ const post = [
       { type: 'text', content: 'aqui vai a segunda linha' },
       { type: 'link', content: 'google.com' },
     ],
-    publishedAt: new Date('23023-11-24 17:07:00'),
+    publishedAt: new Date('2023-11-24 23:28:00'),
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const post = [
       { type: 'text', content: 'aqui vai a segunda linha' },
       { type: 'link', content: 'google.com' },
     ],
-    publishedAt: new Date('23023-11-24 17:07:00'),
+    publishedAt: new Date('2023-11-22 17:07:00'),
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const post = [
       { type: 'text', content: 'aqui vai a segunda linha' },
       { type: 'link', content: 'google.com' },
     ],
-    publishedAt: new Date('23023-11-24 17:07:00'),
+    publishedAt: new Date('2023-11-16 17:07:00'),
   },
 ]
 
