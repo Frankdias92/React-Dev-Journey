@@ -5,10 +5,7 @@ import { GlobalStyle } from "./components/styles/themes/global"
 import { defaultTheme } from "./components/styles/themes/default"
 
 
-
-
 export function App() {
-
 
   return (
     <ThemeProvider theme={defaultTheme}>
