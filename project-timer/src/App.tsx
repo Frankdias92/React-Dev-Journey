@@ -1,7 +1,9 @@
 import { ThemeProvider } from "styled-components"
-import { Button } from "./components/Button"
-import { defaultTheme } from "./components/styles/themes/default"
+import { BrowserRouter } from "react-router-dom"
+import { Router } from "./Router"
 import { GlobalStyle } from "./components/styles/themes/global"
+import { defaultTheme } from "./components/styles/themes/default"
+
 
 
 
@@ -10,14 +12,10 @@ export function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <h1>Project Timer</h1>
-
-      <Button variant="primary"/>
-      <Button variant="secondary"/>
-      <Button variant="success"/>
-      <Button variant="danger"/>
-      <Button />
-   
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      
       <GlobalStyle />
     </ThemeProvider>
   )
