@@ -1,9 +1,23 @@
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
 import { Searchform } from "./components/SearchForm";
+import { useContextSelector } from "use-context-selector"
+
 import { PriceHighLigh, TransactionsComponent, TransactionsTable } from "./styles";
 
+
+import { TransactionsContext } from "../../contexts/TransactionsContext";
+import { dateFormatter, priceFormatter } from "../../utilis/formatter";
+
+
+
 export function Transactions() {
+
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  }
+  );
+  
   return (
     <div>
       <Header />
@@ -15,34 +29,25 @@ export function Transactions() {
         
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td width='50%' >Desenvolvimento de site</td>
-              <td>
-                <PriceHighLigh variant="income">
-                  R$ 12.000,00
-                </PriceHighLigh>
-              </td>
-              <td>Venda</td>
-              <td>28/11/2023</td>
-            </tr>
+            {transactions.map(transaction => {
+              return (
+                <tr key={transaction.id}>
+                  <td width='50%' >{transaction.description}</td>
+                  <td>
+                    <PriceHighLigh variant={transaction.type}>
 
-            <tr>
-              <td width='50%' >Desenvolvimento de site</td>
-              <td>R$ 12.000,00</td>
-              <td>Venda</td>
-              <td>28/11/2023</td>
-            </tr>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(transaction.price)}
+                    </PriceHighLigh>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
+                </tr>
 
-            <tr>
-              <td width='50%' >Hamburg</td>
-              <td>
-                <PriceHighLigh variant="outcome">
-                  - R$ 39,90
-                </PriceHighLigh>
-              </td>
-              <td>Venda</td>
-              <td>22/11/2023</td>
-            </tr>
+
+              )
+            })}
+           
           </tbody>
         </TransactionsTable>
       </TransactionsComponent>
