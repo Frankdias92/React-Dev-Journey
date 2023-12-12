@@ -5,8 +5,10 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
-  width: 100vh;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   insert: 0;
   background: rgba(0, 0, 0, 0.75);
 `;

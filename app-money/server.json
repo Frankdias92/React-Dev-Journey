@@ -31,6 +31,14 @@
       "type": "outcome",
       "createdAt": "2023-11-30T00:09:03.624Z",
       "id": 4
+    },
+    {
+      "description": "testando produto",
+      "category": "educação",
+      "price": 1200,
+      "type": "outcome",
+      "createdAt": "2023-12-12T20:37:15.455Z",
+      "id": 5
     }
   ]
 }
