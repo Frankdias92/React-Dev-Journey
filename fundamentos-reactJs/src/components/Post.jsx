@@ -22,21 +22,21 @@ export function Post({ author, publishedAt, content}) {
 
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
 
-  function handleNewComment() {
+  function handleNewComment(event) {
     event.preventDefault();
 
     // const newCommentText = event.target.comment.value;
 
     setComments([...comments, newCommentText]);
     setNewCommentText('');
-  };
+  }
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event) {
     event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event) {
     event.target.setCustomValidity('Invalid Comment, please enter a valid comment');
   }
 
@@ -49,6 +49,9 @@ export function Post({ author, publishedAt, content}) {
   }
 
   const isNewCommentEmpty = newCommentText.length === 0; 
+
+
+
 
   return (
    <article className={styles.post}>
@@ -103,6 +106,8 @@ export function Post({ author, publishedAt, content}) {
             content={comment} 
             onDeleteComment={deleteComment}
           />
+
+          
         )
       })}
     </div>

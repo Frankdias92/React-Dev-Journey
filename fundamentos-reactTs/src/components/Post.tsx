@@ -1,22 +1,22 @@
-import { format, formatDistanceToNow } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR'
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
 import styles from './Post.module.css';
 
 interface Author {
   name: string;
   role: string;
   avatarUrl: string;
-};
+}
 
 interface Content {
   type: 'text' | 'link' | string;
-  content: any;
-};
+  content: React.ReactNode;
+}
 
 export interface PostType {
   id: number;
@@ -26,15 +26,40 @@ export interface PostType {
 }
 interface PostProps {
   post: PostType;
-};
+}
 
 export function Post({ post }: PostProps ) {
   const [comments, setComments] = useState([
-    'You are Rock! 🤘'
+    {
+      id: 1,
+      author: {
+        avatarUrl: './src/assets/images/users/user1.jpg',
+        name: 'name1',
+        role: 'Front-End',
+      },
+      content: ["Reading is such a wonderful way to escape and broaden our horizons. What was the book? I'm always looking for new recommendations!"]
+    },
+    {
+      id: 2,
+      author: {
+        avatarUrl: './src/assets/images/users/user2.jpg',
+        name: 'name2',
+        role: 'Front-End',
+      },
+      content: ["That sounds wonderful! Family time is so precious, and those moments of togetherness are truly special. Enjoy every moment!"]
+    },
+    {
+      id: 3,
+      author: {
+        avatarUrl: './src/assets/images/users/user3.jpg',
+        name: 'name3',
+        role: 'Front-End',
+      },
+      content: ["Sounds like an amazing adventure! Traveling and experiencing new cultures is so enriching. Wishing you a fantastic trip and lots of unforgettable memories!"]
+    }
   ]);
   
   const [newCommentText, setNewCommentText] = useState('');
-
 
   const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm", {
     locale: ptBR
@@ -45,11 +70,19 @@ export function Post({ post }: PostProps ) {
   function handleNewComment(event: FormEvent) {
     event.preventDefault();
 
-    // const newCommentText = event.target.comment.value;
+    const newComment = {
+      id: comments.length + 1,
+      author: {
+        avatarUrl: 'https://github.com/Frankdias92.png',
+        name: 'Franklin Macedo',
+        role: 'Developer'
+      },
+      content: [newCommentText]
+    };
 
-    setComments([...comments, newCommentText]);
+    setComments([...comments, newComment]);
     setNewCommentText('');
-  };
+  }
 
   function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
@@ -60,11 +93,8 @@ export function Post({ post }: PostProps ) {
     event.target.setCustomValidity('Invalid Comment, please enter a valid comment');
   }
 
-  function deleteComment(commentToDelete: string) {
-    const commentsWithoutDeletedOne = comments.filter(comment => {
-      return comment != commentToDelete;  
-    })
-
+  function deleteComment(commentToDeleteId: number) {
+    const commentsWithoutDeletedOne = comments.filter(comment => comment.id !== commentToDeleteId);
     setComments(commentsWithoutDeletedOne);
   }
 
@@ -86,17 +116,16 @@ export function Post({ post }: PostProps ) {
       </time>
     </header>
 
-
     <div className={styles.content}>
-        {post.content.map(line => {
+        {post.content.map((line, index) => {
           if (line.type === 'text') {
-            return <p key={line.content}>{line.content}</p>
+            return <p key={index}>{line.content}</p>
           } else if (line.type === 'link') {
-            return <p key={line.content}><a href="#">{line.content}</a></p>
+            return <p key={index}><a href="#">{line.content}</a></p>
           }
+          return null;
         })}
     </div>
-
 
     <form onSubmit={handleNewComment} className={styles.commentForm}>
       <strong>Leave a comment</strong>
@@ -111,20 +140,20 @@ export function Post({ post }: PostProps ) {
       />
 
       <footer>
-        <button type='submit' disabled={isNewCommentEmpty}>Send Commit</button>
+        <button type='submit' disabled={isNewCommentEmpty}>Enviar Comentário</button>
       </footer>
     </form>
 
     <div className={styles.commentList} >
-      {comments.map(comment => {
-        return (
-          <Comment 
-            key={comment} 
-            content={comment} 
-            onDeleteComment={deleteComment}
-          />
-        )
-      })}
+      {comments.map(comment => (
+        <Comment 
+          key={comment.id}
+          avatarUrl={comment.author.avatarUrl}
+          name={comment.author.name}
+          content={comment.content} 
+          onDeleteComment={() => deleteComment(comment.id)}
+        />
+      ))}
     </div>
    </article>
   )

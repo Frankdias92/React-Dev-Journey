@@ -3,6 +3,7 @@ import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 import { TrashSimple,ThumbsUp } from '@phosphor-icons/react';
 
+
 export function Comment({ content, onDeleteComment}) {
  
  const [likeCount, setLikeCount] = useState(0); 
