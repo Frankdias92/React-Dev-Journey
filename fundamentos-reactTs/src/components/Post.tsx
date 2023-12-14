@@ -34,16 +34,17 @@ export function Post({ post }: PostProps ) {
       id: 1,
       author: {
         avatarUrl: './src/assets/images/users/user1.jpg',
-        name: 'name1',
+        name: 'Albert M. McGee',
         role: 'Front-End',
       },
-      content: ["Reading is such a wonderful way to escape and broaden our horizons. What was the book? I'm always looking for new recommendations!"]
+      content: ["Reading is such a wonderful way to escape and broaden our horizons. What was the book? I'm always looking for new recommendations!"],
+      publishedAt: new Date('2023-11-22 17:07:00'),
     },
     {
       id: 2,
       author: {
         avatarUrl: './src/assets/images/users/user2.jpg',
-        name: 'name2',
+        name: 'Melissa Costa',
         role: 'Front-End',
       },
       content: ["That sounds wonderful! Family time is so precious, and those moments of togetherness are truly special. Enjoy every moment!"]
@@ -52,7 +53,7 @@ export function Post({ post }: PostProps ) {
       id: 3,
       author: {
         avatarUrl: './src/assets/images/users/user3.jpg',
-        name: 'name3',
+        name: 'Melissa Costa',
         role: 'Front-End',
       },
       content: ["Sounds like an amazing adventure! Traveling and experiencing new cultures is so enriching. Wishing you a fantastic trip and lots of unforgettable memories!"]
@@ -80,7 +81,7 @@ export function Post({ post }: PostProps ) {
       content: [newCommentText]
     };
 
-    setComments([...comments, newComment]);
+    setComments([newComment, ...comments]);
     setNewCommentText('');
   }
 
@@ -104,7 +105,7 @@ export function Post({ post }: PostProps ) {
    <article className={styles.post}>
     <header>
       <div className={styles.author}>
-        <Avatar src={post.author.avatarUrl} alt='' />
+        <Avatar src={post.author.avatarUrl} alt={post.author.name} />
         <div className={styles.authorInfo} >
           <strong>{post.author.name}</strong>
           <span>{post.author.role}</span>
@@ -153,7 +154,8 @@ export function Post({ post }: PostProps ) {
           content={comment.content} 
           onDeleteComment={() => deleteComment(comment.id)}
         />
-      ))}
+        ))}
+
     </div>
    </article>
   )
