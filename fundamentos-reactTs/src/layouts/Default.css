@@ -1,0 +1,26 @@
+
+/* Page: TimeLIne */
+.layout {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+
+/* content */
+.content {
+  border-left: 1px solid var(--content-border);
+  border-right: 1px solid var(--content-border);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 88px 1fr;
+  }
+}

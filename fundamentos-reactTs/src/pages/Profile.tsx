@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { getProfileFromStorage, saveProfileToStorage } from '../storage/storageutil';
 
+import './Profile.css'
+
 
 export function Profile() {
   const [name, setName] = useState('Franklin Macedo')
@@ -25,7 +27,8 @@ export function Profile() {
   }, [])
   
   return (
-    <>
+    
+    <div className='profile'>
       <input
         type="text"
         value={name}
@@ -51,7 +54,7 @@ export function Profile() {
       <a  href="/">
         Voltar para home
       </a>
-    </>
+    </div>
   )
 }
 
