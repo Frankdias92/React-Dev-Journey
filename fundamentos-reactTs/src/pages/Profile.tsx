@@ -2,12 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 import { getProfileFromStorage, saveProfileToStorage } from '../storage/storageutil';
 
 import './Profile.css'
+import { CaretCircleLeft } from 'phosphor-react';
 
 
 export function Profile() {
-  const [name, setName] = useState('Franklin Macedo')
-  const [profileImage, setProfileImage] = useState('Frankdias92')
-  const [role, setRole] = useState('Developer')
+  const [name, setName] = useState('')
+  const [profileImage, setProfileImage] = useState('')
+  const [role, setRole] = useState('')
 
   const saveChanges = useCallback(() => {
     saveProfileToStorage(name, profileImage, role);
@@ -28,32 +29,44 @@ export function Profile() {
   
   return (
     
-    <div className='profile'>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        type="text"
-        value={role}
-        onChange={(e) => setRole(e.target.value)}
-      />
-
-      <input
-        type="text"
-        value={profileImage}
-        onChange={(e) => setProfileImage(e.target.value)}
-      />
-
-      <footer>
-        <button onClick={saveChanges} >Save</button>
-      </footer>
-
-      <a  href="/">
-        Voltar para home
+    <div className='wrapper'>
+      <a className='closeBtn'  href="/">
+        <CaretCircleLeft size={32} />
       </a>
+  
+      <form className='profile'>
+        <div className='container'>
+          <span>Profile Name</span>
+          <input
+            type="text"
+            value={name}
+            placeholder='Your Name'
+            onChange={(e) => setName(e.target.value)}
+          />
+        
+
+          <span>Your job title</span>
+          <input
+            type="text"
+            value={role}
+            placeholder='Senior Developer'
+            onChange={(e) => setRole(e.target.value)}
+          />
+
+          <span>Change your profile image</span>
+          <input
+            type="text"
+            value={profileImage}
+            placeholder='your profile gitHub'
+            onChange={(e) => setProfileImage(e.target.value)}
+          />
+
+          <footer>
+            <button onClick={saveChanges} >Save</button>
+          </footer>
+        </div>
+      </form>
+      
     </div>
   )
 }

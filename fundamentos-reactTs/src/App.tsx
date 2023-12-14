@@ -6,9 +6,6 @@ import './global.css';
 export function App() {
   return (
     <>    
-      {/* <div className={styles.wrapper}>
-    
-      </div> */}
       <RouterProvider router={router} />
     </>
   )

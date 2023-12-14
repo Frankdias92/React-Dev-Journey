@@ -1,11 +1,11 @@
 import styles from './Header.module.css';
-import logo from '../assets/images/logo.png';
+import { CodeSimple } from 'phosphor-react';
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <img src={logo} alt="logotipo do projeto" />
-      <strong>Vite + React + TS</strong>
+      <CodeSimple size={32} />
+      <strong>CodeJourney</strong>
     </header>
   )
 }
