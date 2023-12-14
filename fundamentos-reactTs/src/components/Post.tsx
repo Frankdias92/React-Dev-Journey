@@ -1,11 +1,14 @@
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
-
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR'
 import styles from './Post.module.css';
+import { getProfileFromStorage } from '../storage/storageutil';
+
+
+const { name: storeName, profileImage: storeImage, role: storeRole } = getProfileFromStorage();
 
 interface Author {
   name: string;
@@ -74,9 +77,9 @@ export function Post({ post }: PostProps ) {
     const newComment = {
       id: comments.length + 1,
       author: {
-        avatarUrl: 'https://github.com/Frankdias92.png',
-        name: 'Franklin Macedo',
-        role: 'Developer'
+        avatarUrl: `https://github.com/${storeImage}.png`,
+        name: storeName,
+        role: storeRole
       },
       content: [newCommentText]
     };
