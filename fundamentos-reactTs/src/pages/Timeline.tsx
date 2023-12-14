@@ -3,11 +3,6 @@ import { useEffect, useState } from 'react';
 import { getProfileFromStorage } from '../../src/storage/storageutil';
 
 
-
-// const { name: storeName, profileImage: storeImage, role: storeRole } = getProfileFromStorage();
-
-
-
 const Timeline: React.FC = () => {
   const [profile, setProfile] = useState(getProfileFromStorage());
 

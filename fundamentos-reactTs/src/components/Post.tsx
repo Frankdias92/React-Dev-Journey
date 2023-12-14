@@ -7,7 +7,6 @@ import ptBR from 'date-fns/locale/pt-BR'
 import styles from './Post.module.css';
 import { getProfileFromStorage } from '../storage/storageutil';
 
-
 const { name: storeName, profileImage: storeImage, role: storeRole } = getProfileFromStorage();
 
 interface Author {
@@ -21,18 +20,30 @@ interface Content {
   content: React.ReactNode;
 }
 
+interface CommentType {
+  id: number;
+  author: {
+    avatarUrl: string;
+    name: string;
+    role: string;
+  };
+  content: string[];
+  publishedAt: string;
+}
+
 export interface PostType {
   id: number;
   author: Author;
   publishedAt: Date;
   content: Content[];
 }
+
 interface PostProps {
   post: PostType;
 }
 
-export function Post({ post }: PostProps ) {
-  const [comments, setComments] = useState([
+export function Post({ post }: PostProps) {
+  const [comments, setComments] = useState<CommentType[]>([
     {
       id: 1,
       author: {
@@ -40,8 +51,10 @@ export function Post({ post }: PostProps ) {
         name: 'Albert M. McGee',
         role: 'Front-End',
       },
-      content: ["Reading is such a wonderful way to escape and broaden our horizons. What was the book? I'm always looking for new recommendations!"],
-      publishedAt: new Date('2023-11-22 17:07:00'),
+      content: [
+        "Reading is such a wonderful way to escape and broaden our horizons. What was the book? I'm always looking for new recommendations!"
+      ],
+      publishedAt: new Date('2023-11-24 18:30:00').toISOString(),
     },
     {
       id: 2,
@@ -50,7 +63,10 @@ export function Post({ post }: PostProps ) {
         name: 'Melissa Costa',
         role: 'Front-End',
       },
-      content: ["That sounds wonderful! Family time is so precious, and those moments of togetherness are truly special. Enjoy every moment!"]
+      content: [
+        "That sounds wonderful! Family time is so precious, and those moments of togetherness are truly special. Enjoy every moment!"
+      ],
+      publishedAt: new Date('2023-11-22 11:30:00').toISOString(),
     },
     {
       id: 3,
@@ -59,17 +75,20 @@ export function Post({ post }: PostProps ) {
         name: 'Melissa Costa',
         role: 'Front-End',
       },
-      content: ["Sounds like an amazing adventure! Traveling and experiencing new cultures is so enriching. Wishing you a fantastic trip and lots of unforgettable memories!"]
+      content: [
+        "Sounds like an amazing adventure! Traveling and experiencing new cultures is so enriching. Wishing you a fantastic trip and lots of unforgettable memories!"
+      ],
+      publishedAt: new Date('2023-11-22 18:31:00').toISOString(),
     }
   ]);
-  
+
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm", {
     locale: ptBR
   });
 
-  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {locale: ptBR, addSuffix: true});
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, { locale: ptBR, addSuffix: true });
 
   function handleNewComment(event: FormEvent) {
     event.preventDefault();
@@ -81,7 +100,8 @@ export function Post({ post }: PostProps ) {
         name: storeName,
         role: storeRole
       },
-      content: [newCommentText]
+      content: [newCommentText],
+      publishedAt: new Date().toISOString(),
     };
 
     setComments([newComment, ...comments]);
@@ -102,25 +122,25 @@ export function Post({ post }: PostProps ) {
     setComments(commentsWithoutDeletedOne);
   }
 
-  const isNewCommentEmpty = newCommentText.length === 0; 
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
-   <article className={styles.post}>
-    <header>
-      <div className={styles.author}>
-        <Avatar src={post.author.avatarUrl} alt={post.author.name} />
-        <div className={styles.authorInfo} >
-          <strong>{post.author.name}</strong>
-          <span>{post.author.role}</span>
+    <article className={styles.post}>
+      <header>
+        <div className={styles.author}>
+          <Avatar src={post.author.avatarUrl} alt={post.author.name} />
+          <div className={styles.authorInfo} >
+            <strong>{post.author.name}</strong>
+            <span>{post.author.role}</span>
+          </div>
         </div>
-      </div>
 
-      <time title={publishedDateFormatted} dateTime='24-11-2023 21:53:30'>
-        {publishedDateRelativeToNow}
-      </time>
-    </header>
+        <time title={publishedDateFormatted} dateTime={post.publishedAt.toISOString()}>
+          {publishedDateRelativeToNow}
+        </time>
+      </header>
 
-    <div className={styles.content}>
+      <div className={styles.content}>
         {post.content.map((line, index) => {
           if (line.type === 'text') {
             return <p key={index}>{line.content}</p>
@@ -129,37 +149,37 @@ export function Post({ post }: PostProps ) {
           }
           return null;
         })}
-    </div>
+      </div>
 
-    <form onSubmit={handleNewComment} className={styles.commentForm}>
-      <strong>Leave a comment</strong>
+      <form onSubmit={handleNewComment} className={styles.commentForm}>
+        <strong>Leave a comment</strong>
 
-      <textarea
-        name='comment'
-        placeholder='Leave a comment here'
-        value={newCommentText}
-        onChange={handleNewCommentChange}
-        onInvalid={handleNewCommentInvalid}
-        required
-      />
-
-      <footer>
-        <button type='submit' disabled={isNewCommentEmpty}>Enviar Comentário</button>
-      </footer>
-    </form>
-
-    <div className={styles.commentList} >
-      {comments.map(comment => (
-        <Comment 
-          key={comment.id}
-          avatarUrl={comment.author.avatarUrl}
-          name={comment.author.name}
-          content={comment.content} 
-          onDeleteComment={() => deleteComment(comment.id)}
+        <textarea
+          name='comment'
+          placeholder='Leave a comment here'
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
-        ))}
 
-    </div>
-   </article>
+        <footer>
+          <button type='submit' disabled={isNewCommentEmpty}>Enviar Comentário</button>
+        </footer>
+      </form>
+
+      <div className={styles.commentList} >
+        {comments.map(comment => (
+          <Comment 
+            key={comment.id}
+            avatarUrl={comment.author.avatarUrl}
+            name={comment.author.name}
+            content={comment.content}
+            publishedAt={comment.publishedAt}
+            onDeleteComment={() => deleteComment(comment.id)}
+          />
+        ))}
+      </div>
+    </article>
   )
 }

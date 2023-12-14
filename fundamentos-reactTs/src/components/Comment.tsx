@@ -3,15 +3,19 @@ import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 import { TrashSimple, ThumbsUp } from '@phosphor-icons/react';
 
+import { format, formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
 
 interface CommentProps {
   avatarUrl: string;
   name: string;
   content: string[];
+  publishedAt?: string;
   onDeleteComment: (comment: string) => void;
 }
 
-export function Comment({ content, avatarUrl, name, onDeleteComment }: CommentProps ) {
+export function Comment({ content, avatarUrl, publishedAt, name, onDeleteComment }: CommentProps ) {
  
  const [likeCount, setLikeCount] = useState(0); 
  
@@ -26,6 +30,13 @@ export function Comment({ content, avatarUrl, name, onDeleteComment }: CommentPr
     onDeleteComment(content[0]);
   }
 
+  const publishedDateFormatted = format(new Date(publishedAt || ''), "d 'de' LLLL 'às' HH:mm", {
+    locale: ptBR
+  });
+
+  const publishedDateRelativeToNow = formatDistanceToNow(new Date(publishedAt || ''), { locale: ptBR });
+
+
   return (
     
     <div className={styles.comment}>
@@ -37,7 +48,9 @@ export function Comment({ content, avatarUrl, name, onDeleteComment }: CommentPr
           <header>
             <div className={styles.authorAndTime} >
               <strong>{name}</strong>
-              <time title='23 de novembro as 17:23' dateTime='2023-11-23 17:24:30'>Publicado há 1h</time>
+              <time title={publishedDateFormatted} dateTime='24-11-2023 21:53:30'>
+                {publishedDateRelativeToNow}
+              </time>
             </div>
 
             <button onClick={handleDeleteComment} title='Delete comment'>
