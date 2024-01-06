@@ -5,11 +5,14 @@ export const HeaderContainer = styled.header`
   background: ${props => props.theme['gray-900']};
   padding: 2.5rem 0 7.5rem;
 
-
-  img {
-    width: 2rem
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0 1.5rem
   }
 `;
+
+
 
 export const HeaderContent = styled.div`
   width: 100%;
