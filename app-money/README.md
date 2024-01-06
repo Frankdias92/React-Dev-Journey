@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+#Projeto: "App Money"
+###Tools:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vite (for rapid front-end application development)
+ESLint (for static code analysis)
+TypeScript (for typed programming)
+JSON Server (to simulate a backend API)
 
-Currently, two official plugins are available:
+Libraries:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Axios (to make HTTP requests)
+Phosphor React (icons)
+React (core library)
+React DOM (for DOM manipulation in React)
+React Hook Form (for form manipulation)
+Styled Components (for styling with CSS-in-JS)
+Zod (for data schema validation)
 
-## Expanding the ESLint configuration
+<h2>How to install:</h2>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h3><strong>Clone the repository:</strong></h3>
 
-- Configure the top-level `parserOptions` property like this:
+ ```
+ https://github.com/Frankdias92/
+ ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+<strong>Navigate to the project directory:</strong>
+
+```
+cd ./app-money
+```
+<strong>Install dependencies</strong>
+```
+npm i ou yarn install
+```
+</br>
+
+### Inside the 'app-money' folder open two windows in the terminal.
+
+// application initialization
+```
+npm run dev
+```
+// server startup
+```
+npm run dev:server
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+</br>
+
+**Access the application at:**
+```
+http://localhost:5173/
+```
+
+**Access to the data server.json**
+```
+http://localhost:3000/transactions
+```

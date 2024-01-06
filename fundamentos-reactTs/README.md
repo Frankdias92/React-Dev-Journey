@@ -1,30 +1,50 @@
-# React + TypeScript + Vite
+#Projeto: "Code Journey"
+###Tools:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vite
+ESLint
+TypeScript
 
-Currently, two official plugins are available:
+###Libraries:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Phosphor Icons React
+Date-fns (for date manipulation)
+LocalForage (for local storage)
+React
+React DOM
+React Router DOM (for route management in React)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h2>How to install:</h2>
 
-- Configure the top-level `parserOptions` property like this:
+<h3><strong>Clone the repository:</strong></h3>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+ ```
+ https://github.com/Frankdias92/
+ ```
+
+<strong>Navigate to the project directory:</strong>
+
+```
+cd ./fundamentos-reactTs
+```
+<strong>Install dependencies</strong>
+```
+npm i ou yarn install
+```
+</br>
+
+### Inside the 'fundamentos-reactTs' folder open the terminal.
+
+// application initialization
+```
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+</br>
+
+**Access the application at:**
+```
+http://localhost:5173/
+```
+
