@@ -1,12 +1,16 @@
-#Projeto: "Code Journey"
+<h1>Project: "Code Journey"</h1>
 
-###Tools:
+<p>
+Based on React and TypeScript, using Vite as a rapid development tool. Integrates libraries like Date-fns for date manipulation, LocalForage for local storage, and React Router DOM for route management in React.
+</p>
+
+<h3>Tools:</h3>
 
 Vite
 ESLint
 TypeScript
 
-###Libraries:
+<h3>Libraries:</h3>
 
 Phosphor Icons React
 Date-fns (for date manipulation)
@@ -35,7 +39,7 @@ npm i ou yarn install
 ```
 </br>
 
-### Inside the 'fundamentos-reactTs' folder open the terminal.
+<h3> Inside the 'fundamentos-reactTs' folder open the terminal. </h3>
 
 // application initialization
 ```

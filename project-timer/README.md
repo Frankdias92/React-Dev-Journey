@@ -1,12 +1,16 @@
-#Projeto: "Project Timer"
+<h1> Projeto: "Project Timer" </h1>
 
-###Tools:
+<p>
+This project uses Vite, ESLint, and TypeScript for development. It includes libraries like React, React Hook Form for forms, React Router DOM for navigation, and Styled Components for styling. It also incorporates tools like Immer for immutable state manipulation and Zod for data schema validation.
+</p>
+
+<h3> Tools: </h3>
 
 Vite
 ESLint
 TypeScript
 
-###Libraries:
+<h3> Libraries: </h3>
 
 @Hookform/resolvers
 Date-fns
