@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@phosphor-icons/react": "^2.0.15",
+    "cors": "^2.8.5",
     "date-fns": "^2.30.0",
+    "json-server": "^1.0.0-alpha.13",
     "phosphor-react": "^1.4.1"
   }
 }
