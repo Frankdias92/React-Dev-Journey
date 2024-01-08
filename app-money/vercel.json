@@ -13,5 +13,6 @@
   "routes": [
     { "src": "/api/transactions", "dest": "server.json" },
     { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
