@@ -24,15 +24,18 @@ These experiences not only provided me with valuable learning but also allowed m
 
 **App Money:**
 In this project, a complete front-end web application was built, connecting to an API and how to perform applications with React, understanding how the library's internal algorithms and the entire component rendering flow work.
+
 <a href="https://app-money-five.vercel.app" target="_blank">🚀 Live </a>
 
 **React Fundamentals:**
 A React application was built using Vite and I learned about the most important concepts of react, including componentization, properties, states, immutability and hooks, in addition to applying TypeScript to our project to add static typing to the application.
+
 <a href="https://react-dev-journey.vercel.app" target="_blank">🚀 Live </a>
 
 
 **Project Timer:**
 In this project we built a complete application with routing and several important concepts from the React ecosystem such as ContextAPI, useReducer, immer, React Router, Hook Form.
+
 <a href="https://project-timer-ten.vercel.app" target="_blank">🚀 Live </a>
 
 ## 👨‍💻 Layout
