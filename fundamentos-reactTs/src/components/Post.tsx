@@ -47,7 +47,7 @@ export function Post({ post }: PostProps) {
     {
       id: 1,
       author: {
-        avatarUrl: '/src/assets/user1.jpg',
+        avatarUrl: 'https://img.freepik.com/fotos-gratis/empresario-prospero-mantem-as-maos-cruzadas-tem-expressao-satisfeita_273609-16711.jpg',
         name: 'Albert M. McGee',
         role: 'Front-End',
       },
@@ -59,8 +59,8 @@ export function Post({ post }: PostProps) {
     {
       id: 2,
       author: {
-        avatarUrl: '/src/assets/user2.jpg',
-        name: 'Melissa Costa',
+        avatarUrl: 'https://img.freepik.com/fotos-gratis/sorrindo-alegremente-feminino-com-cabelo-loiro-vestido-casualmente-olhando-com-satisfacao_176420-15187.jpg',
+        name: 'Emilly Azevedo',
         role: 'Front-End',
       },
       content: [
@@ -71,7 +71,7 @@ export function Post({ post }: PostProps) {
     {
       id: 3,
       author: {
-        avatarUrl: ('/src/assets/user3.jpg'),
+        avatarUrl: ('https://img.freepik.com/fotos-gratis/alegre-mulher-envelhecida-media-com-cabelos-cacheados_1262-20859.jpg'),
         name: 'Melissa Costa',
         role: 'Front-End',
       },
