@@ -71,7 +71,7 @@ export function Post({ post }: PostProps) {
     {
       id: 3,
       author: {
-        avatarUrl: '/src/assets/images/users/user3.jpg',
+        avatarUrl: ('/src/assets/images/users/user3.jpg'),
         name: 'Melissa Costa',
         role: 'Front-End',
       },

@@ -41,7 +41,7 @@ export function Comment({ content, avatarUrl, publishedAt, name, onDeleteComment
     
     <div className={styles.comment}>
 
-      <Avatar hasBorder={false} src={avatarUrl} alt={'Photo of user'} />
+      <Avatar hasBorder={false} src={avatarUrl} alt={`profile image ${name}`} />
 
       <div className={styles.commentBox} >
         <div className={styles.commentContent} >
