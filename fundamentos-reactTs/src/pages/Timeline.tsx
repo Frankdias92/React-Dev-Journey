@@ -29,7 +29,7 @@ const Timeline: React.FC = () => {
     {
       id: 2,
       author: {
-        avatarUrl: '/src/assets/user3.jpg',
+        avatarUrl: 'https://img.freepik.com/fotos-gratis/sorrindo-alegremente-feminino-com-cabelo-loiro-vestido-casualmente-olhando-com-satisfacao_176420-15187.jpg',
         name: 'Emilly Azevedo',
         role: 'Front-End',
       },
@@ -43,7 +43,7 @@ const Timeline: React.FC = () => {
     {
       id: 3,
       author: {
-        avatarUrl: '/src/assets/user2.jpg',
+        avatarUrl: 'https://img.freepik.com/fotos-gratis/alegre-mulher-envelhecida-media-com-cabelos-cacheados_1262-20859.jpg',
         name: 'Melissa Costa',
         role: 'Back-End',
       },
