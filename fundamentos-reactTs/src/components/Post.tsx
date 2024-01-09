@@ -47,7 +47,7 @@ export function Post({ post }: PostProps) {
     {
       id: 1,
       author: {
-        avatarUrl: '/src/assets/images/users/user1.jpg',
+        avatarUrl: '/src/assets/user1.jpg',
         name: 'Albert M. McGee',
         role: 'Front-End',
       },
@@ -59,7 +59,7 @@ export function Post({ post }: PostProps) {
     {
       id: 2,
       author: {
-        avatarUrl: '/src/assets/images/users/user2.jpg',
+        avatarUrl: '/src/assets/user2.jpg',
         name: 'Melissa Costa',
         role: 'Front-End',
       },
@@ -71,7 +71,7 @@ export function Post({ post }: PostProps) {
     {
       id: 3,
       author: {
-        avatarUrl: ('/src/assets/images/users/user3.jpg'),
+        avatarUrl: ('/src/assets/user3.jpg'),
         name: 'Melissa Costa',
         role: 'Front-End',
       },

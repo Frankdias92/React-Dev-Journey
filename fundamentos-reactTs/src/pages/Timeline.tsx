@@ -29,7 +29,7 @@ const Timeline: React.FC = () => {
     {
       id: 2,
       author: {
-        avatarUrl: '/src/assets/images/users/user3.jpg',
+        avatarUrl: '/src/assets/user3.jpg',
         name: 'Emilly Azevedo',
         role: 'Front-End',
       },
@@ -43,7 +43,7 @@ const Timeline: React.FC = () => {
     {
       id: 3,
       author: {
-        avatarUrl: '/src/assets/images/users/user2.jpg',
+        avatarUrl: '/src/assets/user2.jpg',
         name: 'Melissa Costa',
         role: 'Back-End',
       },
